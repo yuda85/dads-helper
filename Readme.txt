@@ -1,2 +1,2 @@
-#Dads Helper!
+Dads Helper!
 A Project for dads
