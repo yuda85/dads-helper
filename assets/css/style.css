@@ -23,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: #717ff5;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -160,6 +160,7 @@ section {
 
 .pop-img {
   position: relative;
+  box-shadow: 0px 5px 30px rgb(65 84 241 / 20%);
 }
 
 .pop-img img {
@@ -204,9 +205,14 @@ section {
 }
 
 .header .logo img {
-  max-height: 140px;
+  height: 140px;
   margin-right: 6px;
   margin: -26px 0px;
+  transition: 0.4s all ease;
+}
+
+.header.header-scrolled .logo img {
+  height: 90px;
 }
 
 .header .logo span {
@@ -268,7 +274,7 @@ section {
 .navbar .getstarted {
   background: #cf8143;
   padding: 8px 20px;
-  margin-left: 30px;
+  margin: 0 30px;
   border-radius: 4px;
   color: #fff;
 }
@@ -472,7 +478,7 @@ section {
   font-size: 26px;
 }
 
-.hero .btn-get-started {
+.btn-get-started {
   margin-top: 30px;
   line-height: 0;
   padding: 15px 40px;
@@ -480,23 +486,27 @@ section {
   transition: 0.5s;
   color: #fff;
   background: #cf8143;
-  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.3);
 }
 
-.hero .btn-get-started span {
+.btn-get-started span {
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
-.hero .btn-get-started i {
+.btn-get-started i {
   margin-left: 5px;
   font-size: 18px;
   transition: 0.3s;
 }
 
-.hero .btn-get-started:hover i {
+.btn-get-started:hover {
+  background: #d6945f;
+}
+
+.btn-get-started:hover i {
   transform: translateX(5px);
 }
 
@@ -549,23 +559,35 @@ section {
   background-color: #f6f9ff;
   padding: 40px;
 }
-
+.about p {
+  font-size: 18px;
+}
 .about h3 {
   font-size: 14px;
   font-weight: 700;
   color: #cf8143;
-  text-transform: uppercase;
+}
+.about .about-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.about .about-icon h3 {
+  color: #282627;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .about h2 {
-  font-size: 24px;
+  font-size: 44px;
   font-weight: 700;
   color: #282627;
 }
 
 .about p {
   margin: 15px 0 30px 0;
-  line-height: 24px;
 }
 
 .about .btn-read-more {
@@ -627,6 +649,84 @@ section {
   transform: scale(1);
 }
 
+/*--------------------------------------------------------------
+# KITS
+--------------------------------------------------------------*/
+
+.kits {
+  background: #feecd6;
+}
+@media screen and (min-width: 991px) {
+  .kits .container-fluid {
+    padding: 0 50px;
+  }
+}
+.kits h2 {
+  margin: 10px 0 0 0;
+  padding: 0;
+  font-size: 38px;
+  line-height: 42px;
+  font-weight: 700;
+  color: #4d494b;
+}
+.kits p {
+}
+
+.kits .kit {
+  height: 600px;
+  position: relative;
+  padding: 30px;
+}
+.kits .kit .kit-action {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  left: 0;
+  padding: 30px;
+  text-align: center;
+  z-index: 2;
+}
+.kits .kit .kit-title {
+  position: relative;
+  z-index: 4;
+}
+
+.kits .kit.coming-soon:before {
+  content: "Coming Soon";
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+}
+
+.kits .kit .kit-title h3 {
+  font-weight: 700;
+  font-size: 35px;
+  background: #fff;
+  display: inline-block;
+  padding: 10px;
+}
+.kits .kit.kit-cooking {
+  background: url("../img/bake-kit.jpg");
+}
+.kits .kit.kit-sport {
+  background: url("../img/sport-kit.jpg");
+}
+.kits .kit.kit-garden {
+  background: url("../img/garden-kit.jpg");
+}
+
+/*--------------------------------------------------------------
+# KITS End
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
@@ -1318,15 +1418,16 @@ section {
 --------------------------------------------------------------*/
 .testimonials .testimonial-item {
   box-sizing: content-box;
-  padding: 30px;
+  padding: 10px;
   margin: 40px 30px;
   box-shadow: 0px 0 20px rgba(1, 41, 112, 0.1);
   background: #fff;
   min-height: 320px;
   display: flex;
   flex-direction: column;
-  text-align: center;
   transition: 0.3s;
+  text-align: left;
+  position: relative;
 }
 
 .testimonials .testimonial-item .stars {
@@ -1343,6 +1444,9 @@ section {
   border-radius: 50%;
   border: 4px solid #fff;
   margin: 0 auto;
+}
+.testimonials .testimonial-item img {
+  max-width: 100%;
 }
 
 .testimonials .testimonial-item h3 {
@@ -1381,8 +1485,39 @@ section {
 }
 
 .testimonials .swiper-slide {
-  opacity: 0.3;
+  /* opacity: 0.3; */
 }
+.testimonials-slider-kids .item-desc {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  width: 50%;
+  max-height: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.testimonials-slider-kids .item-desc:before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  bottom: 20px;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 30px solid rgba(0, 0, 0, 0.5);
+}
+
+.testimonials-slider-kids .testimonial-item h3 {
+  color: #fff;
+}
+
+/* .testimonials-slider-kids .item-desc h3
+ */
 
 @media (max-width: 1199px) {
   .testimonials .swiper-slide-active {
@@ -1396,7 +1531,7 @@ section {
 @media (min-width: 1200px) {
   .testimonials .swiper-slide-next {
     opacity: 1;
-    transform: scale(1.12);
+    /* transform: scale(1.12); */
   }
 }
 
@@ -1447,7 +1582,7 @@ section {
 
 .team .member .social a {
   transition: color 0.3s;
-  color: rgba(1, 41, 112, 0.5);
+  color: #cf8143;
   margin: 15px 12px;
   display: block;
   line-height: 0;
@@ -1927,7 +2062,7 @@ section {
 }
 
 .blog .blog-author .social-links a {
-  color: rgba(1, 41, 112, 0.5);
+  color: #cf8143;
   margin-right: 5px;
 }
 
@@ -2333,7 +2468,7 @@ section {
 .footer .footer-top .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: rgba(1, 41, 112, 0.5);
+  color: #cf8143;
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
